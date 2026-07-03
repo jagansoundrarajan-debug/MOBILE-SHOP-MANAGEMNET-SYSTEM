@@ -1,0 +1,4 @@
+bcrypt
+fpdf
+matplotlib
+requests
