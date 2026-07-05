@@ -5,13 +5,31 @@ import sqlite3
 # DATABASE CONFIGURATION
 # ==========================================
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_NAME = os.path.join(BASE_DIR, "mobile_shop.db")
+
 
 
 # ==========================================
 # DATABASE CONNECTION
 # ==========================================
+
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_NAME = os.path.join(BASE_DIR, "mobile_shop.db")
+
+import os
+import sys
+import sqlite3
+
+def get_database_path():
+    if getattr(sys, "frozen", False):
+        # Running as EXE
+        return os.path.join(os.path.dirname(sys.executable), "mobile_shop.db")
+    else:
+        # Running from Python
+        return os.path.join(os.path.dirname(os.path.abspath(__file__)), "mobile_shop.db")
+
+DB_NAME = get_database_path()
 
 def get_connection():
     conn = sqlite3.connect(DB_NAME)
