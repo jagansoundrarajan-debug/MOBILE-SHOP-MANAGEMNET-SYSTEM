@@ -1,5 +1,6 @@
 import os
 import sqlite3
+import sys
 
 # ==========================================
 # DATABASE CONFIGURATION
@@ -17,9 +18,7 @@ import sqlite3
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_NAME = os.path.join(BASE_DIR, "mobile_shop.db")
 
-import os
-import sys
-import sqlite3
+
 
 def get_database_path():
     if getattr(sys, "frozen", False):
